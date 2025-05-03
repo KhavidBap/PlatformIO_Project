@@ -4,7 +4,7 @@
 - Le Minh Bao Ngoc (10422054)
 - Tran Minh Hieu (10422029)
 - Tran Nguyen Kim (10422042)
-Nguyen Phuc Bao (10422014)
+- Nguyen Phuc Bao (10422014)
 
 # Espressif 32: development platform for [PlatformIO](https://platformio.org)
 
