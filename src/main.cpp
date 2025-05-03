@@ -4,6 +4,7 @@
 #include "software_timer.h"
 #include "led_blinky.h"
 #include "htsensor.h"
+#include "heater.h"
 
 DHT20 dht20;
 #define LED_PIN 48
@@ -22,15 +23,20 @@ void TIMER_ISR(void *pvParameters) {
 }
 
 void setup() {
+  SCH_Init();
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(D3, OUTPUT);
+  pinMode(D4, OUTPUT);
+  digitalWrite(D3, HIGH);
+  digitalWrite(D4, HIGH);
   Serial.begin(115200); 
   Wire.begin(GPIO_NUM_11, GPIO_NUM_12);
   dht20.begin();
-  SCH_Init();
-  pinMode(LED_PIN, OUTPUT);
   xTaskCreate(TIMER_ISR, "TIMER_ISR", 2048, NULL, 2, NULL);
   SCH_Add_Task(Timer_Run, 0, 1);
   SCH_Add_Task(LED_Blinky, 0, 100);
   SCH_Add_Task(HTSensor_Read, 0, 500);
+  SCH_Add_Task(Heater_Run, 0, 500);
 }
 
 void loop() {
