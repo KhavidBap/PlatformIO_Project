@@ -14,7 +14,6 @@
 
 int state = RED_GREEN;             
 
-
 void led_red_green() {
     digitalWrite(D3, HIGH);
     digitalWrite(D4, HIGH);
