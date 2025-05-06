@@ -5,6 +5,8 @@
 #include "led_blinky.h"
 #include "htsensor.h"
 #include "heater.h"
+#include "cooler.h"
+#include "humidifier.h"
 
 DHT20 dht20;
 #define LED_PIN 48
@@ -27,6 +29,10 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   pinMode(D3, OUTPUT);
   pinMode(D4, OUTPUT);
+  pinMode(D5, OUTPUT);
+  pinMode(D6, OUTPUT);
+  pinMode(D7, OUTPUT);
+  pinMode(D8, OUTPUT);
   digitalWrite(D3, HIGH);
   digitalWrite(D4, HIGH);
   Serial.begin(115200); 
@@ -36,7 +42,9 @@ void setup() {
   SCH_Add_Task(Timer_Run, 0, 1);
   SCH_Add_Task(LED_Blinky, 0, 100);
   SCH_Add_Task(HTSensor_Read, 0, 500);
-  SCH_Add_Task(Heater_Run, 0, 500);
+  SCH_Add_Task(Heater_Run, 0, 100);
+  SCH_Add_Task(Cooler_Run, 0, 1);
+  SCH_Add_Task(Humidfier_Run, 0, 1);
 }
 
 void loop() {

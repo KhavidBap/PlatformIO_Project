@@ -18,4 +18,11 @@ void Set_Timer(int timer_id, int duration) {
         }
     }
   }
-  
+
+  bool isTimerExpired(int timer_id) {
+    return flag[timer_id] == 1;
+}
+
+void clearTimerFlag(int timer_id) {
+    flag[timer_id] = 0;
+}

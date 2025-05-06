@@ -1,12 +1,13 @@
-#ifndef __SOFTWARE_TIMER_H__
-#define __SOFTWARE_TIMER_H__
-#define MAX 10 
+#ifndef SOFTWARE_TIMER_H
+#define SOFTWARE_TIMER_H
 
-extern int flag[MAX];
-extern int counter[MAX];
+#include <Arduino.h>
 
+#define MAX 10
 
-void Set_Timer(int index, int value);
-void Timer_Run(void);
+void Set_Timer(int timer_id, int duration);
+void Timer_Run();
+bool isTimerExpired(int timer_id);
+void clearTimerFlag(int timer_id);
 
 #endif
