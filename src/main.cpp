@@ -15,7 +15,7 @@ DHT20 dht20;
 #define D5 8
 #define D6 9
 #define D7 10
-#define D8 11
+#define D8 17
 
 void TIMER_ISR(void *pvParameters) {
   while(1) {

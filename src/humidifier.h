@@ -12,13 +12,9 @@
 
 // Define pins for the humidifier LEDs
 #define D7 10
-#define D8 11
+#define D8 17
 
 // Function prototypes
-void idle();
-void led_timer_green();
-void led_timer_yellow();
-void led_timer_red();
 void Humidfier_Run();
 
 #endif // HUMIDIFIER_H
